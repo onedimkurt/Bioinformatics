@@ -1,2 +1,11 @@
-print("This file was created in R")
-print("We'll see the last sentence in GitHub")
+x=input("Please enter the name of the file containing your DNA Sequence: ")
+y=open(x)
+for k in y:
+    print(k)
+    c_content=k.count("C")
+    float(c_content)
+    g_content=k.count("G")
+    float(g_content)
+    k_length=len(k)
+    float(k_length)
+print("GC content =",100*( c_content + g_content )/k_length)
