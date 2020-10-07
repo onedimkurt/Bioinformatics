@@ -1,0 +1,39 @@
+import random
+seq=""
+for i in range(10):
+    seq+=random.choice("AGTC")
+print(seq)
+-->
+#as a sequence alternative
+sek="".join(random.choice("ATGC") for k in range(15))
+print(sek)
+-->
+#To find the longest common prefix in two different strings, you need to first define a new function:
+def longestcommonprefixes(s1,s2):
+    i=0
+    while i < len(s1) and i < len(s2) and s1[i]==s2[i]:
+        i += 1
+    return s1[:i]
+print(longestcommonprefixes("AGGA","AGGA"))
+
+-->
+#if you want to check whether two strings you have exactly match, you can:
+def match(s1,s2):
+    if not len(s1)==len(s2):
+        return False
+    for i in range(len(s1)):
+        if not s1[i]==s2[i]:
+            return False
+    return True
+print(match("AGCCGAATG","AGCCGAATG"))
+-->
+
+#TO GET A REVERSE COMPLEMENTARY STRAND OF A GENE OF INTEREST:
+complementary={"A":"T","G":"C","T":"A","C":"G"}
+def reversecomplement(s):
+    complementary = {"A": "T", "G": "C", "T": "A", "C": "G"}
+    t=""
+    for each_base in s:
+        t=complementary[each_base]+t
+    return t
+print(reversecomplement(""))
