@@ -27,8 +27,36 @@ def createhist(qualities):
 h=createhist(quals)
 print(h)
 
-#Than you should use matplotlip
-
 import matplotlib.pyplot as plt
 plt.bar(range(len(h)),h)
 print(plt.show())
+-->
+-->
+#Finding GC by position:
+matplot again is worked
+def findGCbypos(reads):
+    gc=[0]*100
+    totals=[0]*100
+    for read in reads:
+        for i in range(len(read)):
+            if read[i]=="C" or read[i]=="G":
+                gc[i]+=1
+            totals[i]+=1
+    for i in range(len(gc)):
+            if totals[i]>0:
+                gc[i]/=float(totals[i])
+    return  gc
+gc=findGCbypos(seqs)
+print(gc)
+import matplotlib.pyplot as plt
+plt.plot(range(len(gc)),gc)
+print(plt.show())
+
+-->
+#if you want to count your bases and their numbers:
+import collections
+count=collections.Counter()
+for i in seqs:
+    count.update(i)
+print(count)
+
