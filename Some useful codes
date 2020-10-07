@@ -37,3 +37,23 @@ def reversecomplement(s):
         t=complementary[each_base]+t
     return t
 print(reversecomplement(""))
+
+-->
+#to get a DNA as FASTA format and parse the sequence, and finding the frequency of the each bases in the sequence:
+def readGenome(filename):
+    genome=""
+    with open(filename,"r") as f:
+        for line in f:
+            if not line.startswith(">"):
+                genome+=line.rstrip()
+    return genome
+a=readGenome("lambda.txt")
+counts={"A":0,"G":0,"C":0,"T":0}
+for i in a:
+    counts[i]+=1
+print(counts)
+print(sum(counts.values()))
+      #second way to find the frequency of the bases in the sequence is that:
+      import  collections
+collections.Counter(a)
+print(collections.Counter(a))
